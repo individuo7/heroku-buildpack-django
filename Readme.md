@@ -38,7 +38,7 @@ Example usage:
     $ ls
     Procfile  requirements.txt  web.py
 
-    $ heroku create --stack cedar --buildpack git@github.com:jiaaro/heroku-buildpack-django.git
+    $ heroku create --stack cedar --buildpack git://github.com/heroku/heroku-buildpack-python.git
 
     $ git push heroku master
     ...
@@ -56,6 +56,10 @@ Example usage:
            Installing collected packages: Flask, Werkzeug, Jinja2
            Successfully installed Flask Werkzeug Jinja2
            Cleaning up...
+
+You can also add it to upcoming builds of an existing application:
+
+    $ heroku config:add BUILDPACK_URL=git://github.com/heroku/heroku-buildpack-python.git
 
 The buildpack will detect your app as Python if it has the file `requirements.txt` in the root. It will detect your app as Python/Django if there is an additional `settings.py` in a project subdirectory.
 
